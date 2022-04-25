@@ -36,20 +36,6 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
           ),
         ]),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppStyle.accentColor,
-        onPressed: () async {
-          FirebaseFirestore.instance
-              .collection("notes")
-              .doc()
-              .delete()
-              .then((value) {
-            Navigator.pop(context);
-          }).catchError(
-                  (error) => print("Failed to add new Note due to: $error"));
-        },
-        child: const Icon(Icons.delete),
-      ),
     );
   }
 }
